@@ -7,13 +7,10 @@
 - stringfy the data first, *e.g*
 
 <pre>
- ```
- body: JSON.stringify({
+ ```body: JSON.stringify({
         "userName": user_Name,
         "userEmail": email
-    })
-
-```
+    })```
 </pre>
 
 # recieving data 
