@@ -6,20 +6,12 @@
 - through fetch
 - stringfy the data first, *e.g*
 
-<pre>
- ```javascript
-JSON.stringify({
-    "userName": user_Name,
-    "userEmail": email
-})
-</pre>
-
 ```javascript
 JSON.stringify({
     "userName": user_Name,
     "userEmail": email
 })
-
+```
 # recieving data 
 - from Sever to Front-end and rendering it apprpiately
 
