@@ -14,9 +14,9 @@ app.get('/', (req, res) =>{
 
 //route endpoint
 app.post('/register', (req, res) => {
-    const {user_Name, email} = req.body;
-    console.log("got it ", {user_Name, email});
-    res.send(`user info saved ${{user_Name, email}}`)
+    const {userName, userEmail} = req.body;
+    console.log(`got it , ${userName, userEmail}`);
+    res.json(`user info saved, ${userName} ${userEmail}`)
 
 })
 
