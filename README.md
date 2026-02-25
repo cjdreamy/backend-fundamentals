@@ -57,6 +57,40 @@ app.post('/register', (req, res) => {
 
 # handling Errors Gracefully
 - since Js executes code line by line ,
+- using the **try catch block** 
+<pre>
+server.js
+</pre>
+```js
+app.post('/register', (req, res) => {
+    try {
+        const { userName, userEmail } = req.body;
+
+        if (!userName || !userEmail) {
+            throw new Error("Missing required fields");
+        }
+
+        console.log(`got it, ${userName} ${userEmail}`);
+
+        res.json({
+            success: true,
+            message: `User info saved`,
+            userName,
+            userEmail
+        });
+
+    } catch (err) {
+        console.error(err);
+
+        res.status(400).json({
+            success: false,
+            message: err.message
+        });
+    }
+});
+
+```
+
  **awaiting a promise**
  **async functions**
  - getting the response and handling it in the right format

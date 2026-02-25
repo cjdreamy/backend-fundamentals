@@ -14,11 +14,32 @@ app.get('/', (req, res) =>{
 
 //route endpoint
 app.post('/register', (req, res) => {
-    const {userName, userEmail} = req.body;
-    console.log(`got it , ${userName, userEmail}`);
-    res.json(`user info saved, ${userName} ${userEmail}`)
+    try {
+        const { userName, userEmail } = req.body;
 
-})
+        if (!userName || !userEmail) {
+            throw new Error("Missing required fields");
+        }
+
+        console.log(`got it, ${userName} ${userEmail}`);
+
+        res.json({
+            success: true,
+            message: `User info saved`,
+            userName,
+            userEmail
+        });
+
+    } catch (err) {
+        console.error(err);
+
+        res.status(400).json({
+            success: false,
+            message: err.message
+        });
+    }
+});
+
 
 // exposing port
 app.listen(PORT, (error) =>{

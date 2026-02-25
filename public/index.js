@@ -49,9 +49,8 @@ const email = document.getElementById('email').value.trim();
     
     
 });
-const result = await response.text();
-alert(result);
-       
+const result = await response.json();
+alert(`${result.userName} ${result.userEmail}`);       
     }
 
 
@@ -62,10 +61,8 @@ alert(result);
 //     })
 // }
 
-if(!isValid(user_Name, email)){
-    showingErrors();
-    return; // stops further execution
-}
+ // stops further execution
+
 
 
 
