@@ -15,6 +15,8 @@ app.get('/', (req, res) =>{
 //route endpoint
 app.post('/register', (req, res) => {
     const {userName, email} = req.body;
+    console.log("got it ", {user_Name, email});
+    
 })
 
 // exposing port
