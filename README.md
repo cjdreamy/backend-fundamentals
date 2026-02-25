@@ -6,10 +6,12 @@
 - through fetch
 - stringfy the data first, *e.g*
  <code>
+ ```
  body: JSON.stringify({
         "userName": user_Name,
         "userEmail": email
     })
+    ```
  </code>
 
 # recieving data 
