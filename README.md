@@ -7,7 +7,8 @@
 - stringfy the data first, *e.g*
 
 <pre>
- ```body: JSON.stringify({
+ ```javascript
+ body: JSON.stringify({
         "userName": user_Name,
         "userEmail": email
     })```
