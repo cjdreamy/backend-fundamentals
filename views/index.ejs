@@ -8,17 +8,20 @@
 <body>
    <form action="/register">
     <legend>
-        <label for="user_Name">
+        <label for="user_Name">Enter UserName
             <input type="text" id="user_Name" maxlength="50" min="3" autocomplete="off" autocorrect="off" autofocus>
         </label>
     </legend>
+</br>
     <legend>
-        <label for="email">
+        <label for="email">Enter email
             <input type="email" id="email" >
         </label>
     </legend>
+</br>
     <input type="submit" id="submit_Button">
    </form> 
+   <div id="error_Display"></div>
    <script src="index.js"></script>
 </body>
 </html>

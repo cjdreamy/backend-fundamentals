@@ -1,22 +1,32 @@
 
 const submit_Button = document.getElementById('submit_Button');
+const errorDisplay = document.getElementById('error_Display');
 let Errors = []
+
+// displaying errors
+function showingErrors() {
+    Errors.forEach((error) =>{
+        body.innerHTML = `<p>${error}<p/>`;
+    })
+}
 
 submit_Button.addEventListener('click', async (e) => {
     e.preventDefault();
 
-let user_username = document.getElementById('user_Name').value.trim();
+let user_Name = document.getElementById('user_Name').value.trim();
 let email = document.getElementById('email').value.trim();
 
 if(!username){
     Errors.push("Name cannot be blank")
+    showingErrors()
     return;
 }
 if(!email){
     Errors.push("Enter a valid email")
+    showingErrors()
     return;
 }
-//send to backend
+// send to backend
 
 const response = await fetch('/register', {
     method: "POST",
