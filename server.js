@@ -23,7 +23,7 @@ app.post('/register', (req, res) => {
 // exposing port
 app.listen(PORT, (error) =>{
     if(error){
-        console.log(err.message);
+        console.log(error.message);
     }
     console.log(`server is running on port ${PORT}`)
 }

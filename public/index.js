@@ -2,6 +2,7 @@
 const submit_Button = document.getElementById('submit_Button');
 const errorDisplay = document.getElementById('error_Display');
 let Errors = []
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
 
@@ -21,9 +22,12 @@ const email = document.getElementById('email').value.trim();
 
     if (!email) {
         Errors.push("Email cannot be blank");
-    } else if (!email.includes("@")) {
+    } else if (!emailPattern.test(email)) {
         Errors.push("Enter a valid email");
     }
+
+    
+
 
     // Show errors or submit
     if (Errors.length > 0) {
@@ -31,7 +35,7 @@ const email = document.getElementById('email').value.trim();
         Errors = [];
         return; // stop further execution
     }else {
-        errorContainer.innerHTML = ""; // clear errors
+        errorDisplay.innerHTML = ""; // clear errors
         console.log("Form is valid! Send data to server...");
         const response = await fetch('/register', {
     method: "POST",
