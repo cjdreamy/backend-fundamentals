@@ -8,11 +8,17 @@
 
 <pre>
  ```javascript
- body: JSON.stringify({
-        "userName": user_Name,
-        "userEmail": email
-    })```
+JSON.stringify({
+    "userName": user_Name,
+    "userEmail": email
+})
 </pre>
+
+```javascript
+JSON.stringify({
+    "userName": user_Name,
+    "userEmail": email
+})
 
 # recieving data 
 - from Sever to Front-end and rendering it apprpiately
