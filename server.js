@@ -12,6 +12,12 @@ app.get('/', (req, res) =>{
     res.render('index');
 })
 
+//route endpoint
+app.post('/register', (req, res) => {
+    const {userName, email} = req.body;
+})
+
+// exposing port
 app.listen(PORT, (error) =>{
     if(error){
         console.log(err.message);
