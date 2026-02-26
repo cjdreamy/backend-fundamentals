@@ -11,9 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) =>{
     res.render('index');
 })
-app.get('/da', (req, res) => {
-    res.render('login');
-})
+
 
 
 
@@ -54,7 +52,7 @@ if (user !== 'admin'){
     return res.send("invalid credentials");
 }
 
-res.render('login');
+res.render('dashboard');
 
 })
 
