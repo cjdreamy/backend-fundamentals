@@ -4,7 +4,7 @@
 # sending data 
 - from front-end to server
 - through fetch
-- from client
+- from client (browser);
 <pre>
 index.ejs
 </pre>
