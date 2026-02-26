@@ -1,5 +1,5 @@
 const express = require('express');
-const session = require('express-sesion');
+const session = require('express-session');
 const app = express();
 app.use(express.json());
 const PORT = 3000;
@@ -13,7 +13,11 @@ app.get('/', (req, res) =>{
     res.render('index');
 })
 
-
+app.get('/dashboard', (req, res) => {
+    req.session.user = user ;
+    res.render('dashboard');
+    
+})
 
 
 //route endpoint
