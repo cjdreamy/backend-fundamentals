@@ -1,5 +1,7 @@
 const express = require('express');
+// const crypto = require('crypto');
 const session = require('express-session');
+require('dotenv').config();
 const app = express();
 app.use(express.json());
 const PORT = 3000;
@@ -9,12 +11,17 @@ app.use(express.static("public"));
 app.use(express.static("views"));
 app.use(express.urlencoded({ extended: true }));
 
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: false
+}))
+
 app.get('/', (req, res) =>{
     res.render('index');
 })
 
 app.get('/dashboard', (req, res) => {
-    req.session.user = user ;
     res.render('dashboard');
     
 })
@@ -56,7 +63,7 @@ app.post('/login', (req, res) => {
 if (user !== 'admin'){
     return res.send("invalid credentials");
 }
-
+req.session.loginedUser = user;
 res.redirect('/dashboard');
 
 })
