@@ -14,17 +14,29 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: true
+    }
 }))
 
 app.get('/', (req, res) =>{
     res.render('index');
 })
+app.get('/404', (req, res) => {
+    res.render('404');
+})
 
 app.get('/dashboard', (req, res) => {
+    if(!req.session.loginedUser){
+        return res.redirect('/404');
+    }
     res.render('dashboard');
     
 })
+
+app
 
 
 //route endpoint
@@ -58,6 +70,7 @@ app.post('/register', (req, res) => {
 
 app.post('/dashboard', (req, res) => {
   const  user = req.body.username;
+  
   console.log(user);
 //    res.send(user);
 if (user !== 'admin'){
@@ -65,6 +78,7 @@ if (user !== 'admin'){
 }
 req.session.loginedUser = user;
 res.redirect('/dashboard');
+console.log(req.session.loginedUser);
 
 })
 
