@@ -56,7 +56,7 @@ app.post('/register', (req, res) => {
 });
 
 
-app.post('/login', (req, res) => {
+app.post('/dashboard', (req, res) => {
   const  user = req.body.username;
   console.log(user);
 //    res.send(user);
