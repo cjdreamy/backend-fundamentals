@@ -12,6 +12,10 @@ app.get('/', (req, res) =>{
     res.render('index');
 })
 
+app.get('/login', (req, res) => {
+    res.render('login');
+})
+
 //route endpoint
 app.post('/register', (req, res) => {
     try {
