@@ -11,7 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) =>{
     res.render('index');
 })
-app.get('/login', (req))
+app.get('/da', (req, res) => {
+    res.render('login');
+})
 
 
 
