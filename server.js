@@ -41,6 +41,13 @@ app.post('/register', (req, res) => {
 });
 
 
+app.post('/login', (req, res) => {
+  const  user = req.body.username;
+  console.log(user);
+   res.send(user);
+
+})
+
 // exposing port
 app.listen(PORT, (error) =>{
     if(error){
