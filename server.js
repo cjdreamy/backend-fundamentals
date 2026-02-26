@@ -11,10 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) =>{
     res.render('index');
 })
+app.get('/login', (req))
 
-app.get('/login', (req, res) => {
-    res.render('login');
-})
+
 
 //route endpoint
 app.post('/register', (req, res) => {
@@ -48,7 +47,12 @@ app.post('/register', (req, res) => {
 app.post('/login', (req, res) => {
   const  user = req.body.username;
   console.log(user);
-   res.send(user);
+//    res.send(user);
+if (user !== 'admin'){
+    return res.send("invalid credentials");
+}
+
+res.render('login');
 
 })
 
