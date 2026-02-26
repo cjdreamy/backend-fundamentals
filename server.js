@@ -17,7 +17,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        secure: true
+        secure: false // for dev env only
     }
 }))
 
@@ -36,7 +36,16 @@ app.get('/dashboard', (req, res) => {
     
 })
 
-app
+app.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if(err){
+            console.log(err);
+            res.send("error logging out");
+        }
+        res.clearCookie('connect.sid');
+        res.redirect('/');
+    })
+})
 
 
 //route endpoint
@@ -76,11 +85,19 @@ app.post('/dashboard', (req, res) => {
 if (user !== 'admin'){
     return res.send("invalid credentials");
 }
+
 req.session.loginedUser = user;
-res.redirect('/dashboard');
 console.log(req.session.loginedUser);
+res.redirect('/dashboard');
+
+
 
 })
+
+
+
+// const MongoStore = require('connect-mongo');
+// store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
 
 // exposing port
 app.listen(PORT, (error) =>{
