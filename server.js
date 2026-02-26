@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-sesion');
 const app = express();
 app.use(express.json());
 const PORT = 3000;
@@ -52,7 +53,7 @@ if (user !== 'admin'){
     return res.send("invalid credentials");
 }
 
-res.render('dashboard');
+res.redirect('/dashboard');
 
 })
 
