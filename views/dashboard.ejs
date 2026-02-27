@@ -6,8 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>welcome back <span id="user"></span></h1>
+    <h1>welcome back <span id="userD"></span></h1>
 
     <a href="/logout">Logout</a>
+    <!-- <script src="index.js"></script> -->
+    <script>
+        
+           const userD =  document.getElementById('userD');
+let userData;
+       async function loadData(){
+        const  response = await fetch('/dashboard')
+         const userData =  await response.json();
+userD.textContent = userData;
+ 
+    
+        console.log(userData);
+        alert(userData);
+    
+}
+
+loadData();
+    </script>
 </body>
 </html>

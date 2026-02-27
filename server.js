@@ -89,7 +89,7 @@ if (user !== 'admin'){
 req.session.loginedUser = user;
 console.log(req.session.loginedUser);
 res.redirect('/dashboard');
-
+res.json({username: user})
 
 
 })

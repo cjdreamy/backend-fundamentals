@@ -1,9 +1,12 @@
 
 const submit_Button = document.getElementById('submit_Button');
 const errorDisplay = document.getElementById('error_Display');
+const userD =  document.getElementById('userD');
 let Errors = []
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+
+//old way
 
 
 submit_Button.addEventListener('click', async (e) => {
