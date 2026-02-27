@@ -5,8 +5,23 @@ const userD =  document.getElementById('userD');
 let Errors = []
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+let userData;
+       async function loadData(){
 
-//old way
+        // old way 
+        // const  response = await fetch('/register');
+//          const userData =  await response.json();
+// userD.textContent = userData;
+ 
+//     window.location.href = "/dashboard";
+//         console.log(userData);
+//         alert(`${userData.useN}`);
+
+        
+    
+}
+
+loadData();
 
 
 submit_Button.addEventListener('click', async (e) => {
