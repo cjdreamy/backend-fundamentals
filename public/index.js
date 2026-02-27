@@ -16,10 +16,18 @@ let userData;
 //     window.location.href = "/dashboard";
 //         console.log(userData);
 //         alert(`${userData.useN}`);
+fetch('/dashboard')
+.then(res => res.json())
+.then(data => {
+  if (data.success) {
+    window.location.href = "/dashboard";  //  manual redirect
+    alert(`${data.useN}`);
+}
+})
 
         
-    
-}
+}  
+
 
 loadData();
 
